@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.messages {
+    min-height: 400px;
+    list-style: none;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.messages li {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.form__input {
+    padding: 2px 4px;
+    width: 70%;
+    margin: 10px;
+}
+
+.form__btn {
+    border: none;
+    border-radius: 5px;
+    padding: 2px 4px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+
+}
+

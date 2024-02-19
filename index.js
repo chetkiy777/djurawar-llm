@@ -22,10 +22,15 @@ const session = new LlamaChatSession({context});
 
 
 app.use(express.static(__dirname + "/assets"))
+app.use(express.json())
+app.use(cors({
+    origin: true
+}))
 
 io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
-        console.log(msg)
+        const botAnswer = session.prompt(msg)
+        io.emit('chat message', botAnswer)
     })
 })
  
@@ -36,10 +41,4 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 8001
 server.listen(PORT, () => console.log(`server started on PORT ${PORT}`))
 
-
-const q1 = "Hi there";
-console.log("User: " + q1);
-
-const a1 = await session.prompt(q1);
-console.log("AI: " + a1);
 
